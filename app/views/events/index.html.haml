@@ -1,0 +1,30 @@
+%h1 Events
+
+%table
+	%tr
+		%th Name
+		%th Street1
+		%th Street2
+		%th City
+		%th State
+		%th Zip code
+		%th Start time
+		%th End time
+		%th
+		%th
+		%th
+
+
+	-@events.each do |event|
+		%tr
+			%td= event.name
+			%td= "#{event.street1} #{" "+event.street2 if event.street2}\n#{event.zip_code}" 
+			%td= event.state
+			%td= event.zip_code
+			%td= event.start_time
+			%td= event.end_time
+			%td= link_to 'Show', event
+			%td= link_to 'Edit', edit_event_path(event)
+			%td= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete
+
+= link_to 'New Event', new_event_path

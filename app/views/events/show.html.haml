@@ -1,0 +1,31 @@
+%p#notice= notice
+%p
+	%b Name:
+	= @event.name
+%p
+	%b Street1:
+	= @event.street1
+%p
+	%b Street2:
+	= @event.street2
+%p
+	%b City:
+	= @event.city
+%p
+	%b State:
+	= @event.state
+%p
+	%b Zip code:
+	= @event.zip_code
+%p
+	%b Start time:
+	= @event.start_time
+%p
+	%b End time:
+	= @event.end_time
+
+%p
+	= render :partial => "feedback", :locals => {:feedback => @event.feedback }
+
+= link_to 'Edit', edit_event_path(@event) |
+= link_to 'Back', events_path

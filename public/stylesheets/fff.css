@@ -1,0 +1,14 @@
+body { background-color: #ffbe3c; color: #333; }
+
+#banner {
+	background-color: white;
+	color: #000;
+	font: 60px/60px"Times New Roman";
+	text-align: center;
+	display: block;
+}
+
+#banner #title{
+	vertical-align: top;
+}
+

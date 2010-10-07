@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fff</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+	<div id="banner">
+		<%= image_tag("no_money.jpg", :size => "50x50") %>
+		<%= image_tag("pizza.jpg", :size => "50x50") %>
+		<span id="title"><%= @page_title || "Free Food Finder" %></span>
+		<%= image_tag("pizza.jpg", :size => "50x50") %>
+		<%= image_tag("no_money.jpg", :size => "50x50") %>
+	</div>
+
+<%= yield %>
+
+</body>
+</html>

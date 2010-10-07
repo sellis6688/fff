@@ -1,0 +1,886 @@
+  [1m[36mSQL (59.7ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (102.7ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (1.8ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (171.2ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (4.1ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateEvents (20100915023740)
+  [1m[35mSQL (80.3ms)[0m  CREATE TABLE `events` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `street1` varchar(255), `street2` varchar(255), `city` varchar(255), `state` varchar(255), `zip_code` varchar(255), `start_time` datetime, `endtime` datetime, `network_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (1.2ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (13.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100915023740')
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (1.7ms)[0m  describe `events`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `events`[0m
+
+
+Started GET "/events" for 127.0.0.1 at 2010-09-14 22:47:21 -0400
+  Processing by EventsController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT `events`.* FROM `events`
+Rendered events/index.html.haml within layouts/application (5.2ms)
+Completed 200 OK in 96ms (Views: 11.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2010-09-14 22:47:24 -0400
+  Processing by EventsController#new as HTML
+Rendered events/_form.html.haml (138.6ms)
+Rendered events/new.html.haml within layouts/application (142.3ms)
+Completed   in 156ms
+
+ActionView::Template::Error (undefined method `end_time' for #<Event:0x00000101b851d0>):
+    37: 	.field
+    38: 		=f.label :start_time
+    39: 		%br
+    40: 		=f.datetime_select :end_time
+    41: 
+    42: 	.actions
+    43: 		=f.submit
+  app/views/events/_form.html.haml:40:in `block in _app_views_events__form_html_haml__2231690406557778504_2161765720__4214032825863112461'
+  app/views/events/_form.html.haml:1:in `_app_views_events__form_html_haml__2231690406557778504_2161765720__4214032825863112461'
+  app/views/events/new.html.haml:3:in `_app_views_events_new_html_haml___3712294220400511795_2161833180_1262569944671259334'
+  app/controllers/events_controller.rb:29:in `new'
+
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.5ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateEvents (20100915023740)
+  [1m[35mSQL (46.4ms)[0m  DROP TABLE `events`
+  [1m[36mSQL (21.5ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20100915023740'[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateEvents (20100915023740)
+  [1m[35mSQL (108.5ms)[0m  CREATE TABLE `events` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `street1` varchar(255), `street2` varchar(255), `city` varchar(255), `state` varchar(255), `zip_code` varchar(255), `start_time` datetime, `end_time` datetime, `network_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (1.0ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100915023740')
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (1.6ms)[0m  describe `events`
+  [1m[36mSQL (0.6ms)[0m  [1mSHOW KEYS FROM `events`[0m
+
+
+Started GET "/events/new" for 127.0.0.1 at 2010-09-14 22:49:53 -0400
+  Processing by EventsController#new as HTML
+Rendered events/_form.html.haml (58.3ms)
+Rendered events/new.html.haml within layouts/application (63.8ms)
+Completed 200 OK in 525ms (Views: 70.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2010-09-14 22:51:49 -0400
+  Processing by EventsController#new as HTML
+Rendered events/_form.html.haml (25.4ms)
+Rendered events/new.html.haml within layouts/application (30.7ms)
+Completed 200 OK in 44ms (Views: 36.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2010-09-14 22:52:21 -0400
+  Processing by EventsController#new as HTML
+Rendered events/_form.html.haml (26.5ms)
+Rendered events/new.html.haml within layouts/application (59.9ms)
+Completed 200 OK in 74ms (Views: 65.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/no_money.jpg" for 127.0.0.1 at 2010-09-14 22:52:21 -0400
+
+ActionController::RoutingError (No route matches "/images/no_money.jpg"):
+  
+
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/pizza.jpg" for 127.0.0.1 at 2010-09-14 22:52:21 -0400
+
+ActionController::RoutingError (No route matches "/images/pizza.jpg"):
+  
+
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/pizza.jpg" for 127.0.0.1 at 2010-09-14 22:52:21 -0400
+
+ActionController::RoutingError (No route matches "/images/pizza.jpg"):
+  
+
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/no_money.jpg" for 127.0.0.1 at 2010-09-14 22:52:21 -0400
+
+ActionController::RoutingError (No route matches "/images/no_money.jpg"):
+  
+
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2010-09-14 22:53:06 -0400
+  Processing by EventsController#new as HTML
+Rendered events/_form.html.haml (52.8ms)
+Rendered events/new.html.haml within layouts/application (58.5ms)
+Completed 200 OK in 72ms (Views: 63.8ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (69.4ms)[0m  DROP DATABASE IF EXISTS `fff_test`
+  [1m[36mSQL (0.8ms)[0m  [1mCREATE DATABASE `fff_test` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (80.2ms)[0m  [1mCREATE TABLE `events` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `street1` varchar(255), `street2` varchar(255), `city` varchar(255), `state` varchar(255), `zip_code` varchar(255), `start_time` datetime, `end_time` datetime, `network_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (0.8ms)[0m  SHOW TABLES
+  [1m[36mSQL (160.9ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW KEYS FROM `schema_migrations`
+  [1m[36mSQL (91.3ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20100915023740')
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateEvents (20100915023740)
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (1.2ms)[0m  [1mdescribe `events`[0m
+  [1m[35mSQL (0.7ms)[0m  SHOW KEYS FROM `events`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateEvents (20100915023740)
+  [1m[35mSQL (1.3ms)[0m  DROP TABLE `events`
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20100915023740'[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateEvents (20100915023740)
+  [1m[35mSQL (91.8ms)[0m  CREATE TABLE `events` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `street1` varchar(255), `street2` varchar(255), `city` varchar(255), `state` varchar(255), `zip_code` varchar(255), `start_time` datetime, `end_time` datetime, `network_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (1.1ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100915023740')
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (1.7ms)[0m  describe `events`
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW KEYS FROM `events`[0m
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (2.3ms)[0m  DROP DATABASE IF EXISTS `fff_test`
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE DATABASE `fff_test` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (100.9ms)[0m  [1mCREATE TABLE `events` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `street1` varchar(255), `street2` varchar(255), `city` varchar(255), `state` varchar(255), `zip_code` varchar(255), `start_time` datetime, `end_time` datetime, `network_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (0.8ms)[0m  SHOW TABLES
+  [1m[36mSQL (146.1ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW KEYS FROM `schema_migrations`
+  [1m[36mSQL (113.3ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20100915023740')
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (57.2ms)[0m  DROP DATABASE IF EXISTS `fff_test`
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE DATABASE `fff_test` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (66.6ms)[0m  [1mCREATE TABLE `events` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `street1` varchar(255), `street2` varchar(255), `city` varchar(255), `state` varchar(255), `zip_code` varchar(255), `start_time` datetime, `end_time` datetime, `network_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (144.8ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW KEYS FROM `schema_migrations`
+  [1m[36mSQL (101.6ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20100915023740')
+  [1m[36mSQL (10.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateEvents (20100915023740)
+Migrating to Feedback (20100926191800)
+  [1m[35mSQL (72.4ms)[0m  CREATE TABLE `feedback` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `event_id` int(11), `feasts` int(11), `famine` int(11), `members_only` int(11)) ENGINE=InnoDB
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100926191800')
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.6ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (1.7ms)[0m  describe `events`
+  [1m[36mSQL (1.3ms)[0m  [1mSHOW KEYS FROM `events`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `feedback`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `feedback`[0m
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to Feedback (20100926191800)
+  [1m[35mSQL (6.4ms)[0m  DROP TABLE `feedback`
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20100926191800'[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `events`[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW KEYS FROM `events`
+
+
+Started GET "/events" for 127.0.0.1 at 2010-09-26 15:39:12 -0400
+  Processing by EventsController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT `events`.* FROM `events`
+Rendered events/index.html.haml within layouts/application (6.2ms)
+Completed 200 OK in 109ms (Views: 46.7ms | ActiveRecord: 0.7ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (62.5ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateEvents (20100915023740)
+Migrating to Feedback (20100926191800)
+  [1m[35mSQL (385.7ms)[0m  CREATE TABLE `feedbacks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `event_id` int(11), `feasts` int(11), `famine` int(11), `members_only` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100926191800')
+  [1m[36mSQL (1.1ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (1.6ms)[0m  describe `events`
+  [1m[36mSQL (0.7ms)[0m  [1mSHOW KEYS FROM `events`[0m
+  [1m[35mSQL (1.5ms)[0m  describe `feedbacks`
+  [1m[36mSQL (1.3ms)[0m  [1mSHOW KEYS FROM `feedbacks`[0m
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+
+
+Started GET "/events" for 127.0.0.1 at 2010-09-26 16:16:57 -0400
+  Processing by EventsController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT `events`.* FROM `events`
+Rendered events/index.html.haml within layouts/application (6.4ms)
+Completed 200 OK in 105ms (Views: 13.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2010-09-26 16:16:59 -0400
+  Processing by EventsController#new as HTML
+Rendered events/_form.html.haml (160.4ms)
+Rendered events/new.html.haml within layouts/application (167.8ms)
+Completed 200 OK in 219ms (Views: 208.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2010-09-26 16:17:10 -0400
+  Processing by EventsController#new as HTML
+Rendered events/_form.html.haml (54.7ms)
+Rendered events/new.html.haml within layouts/application (61.6ms)
+Completed 200 OK in 77ms (Views: 67.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2010-09-26 16:17:11 -0400
+  Processing by EventsController#new as HTML
+Rendered events/_form.html.haml (54.6ms)
+Rendered events/new.html.haml within layouts/application (61.2ms)
+Completed 200 OK in 77ms (Views: 67.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2010-09-26 16:17:18 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cBUN2+C9ku0+sX7iwXwejH4e9bHzV75tmD1h3cJYUWw=", "event"=>{"name"=>"", "street1"=>"", "street2"=>"", "city"=>"", "state"=>"", "zip_code"=>"", "start_time(1i)"=>"2010", "start_time(2i)"=>"9", "start_time(3i)"=>"26", "start_time(4i)"=>"20", "start_time(5i)"=>"17", "end_time(1i)"=>"2010", "end_time(2i)"=>"9", "end_time(3i)"=>"26", "end_time(4i)"=>"20", "end_time(5i)"=>"17"}, "commit"=>"Create Event"}
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  ROLLBACK
+Rendered events/_form.html.haml (19.1ms)
+Rendered events/new.html.haml within layouts/application (25.0ms)
+Completed 200 OK in 81ms (Views: 30.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2010-09-26 16:17:27 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cBUN2+C9ku0+sX7iwXwejH4e9bHzV75tmD1h3cJYUWw=", "event"=>{"name"=>"test", "street1"=>"", "street2"=>"", "city"=>"", "state"=>"", "zip_code"=>"", "start_time(1i)"=>"2010", "start_time(2i)"=>"9", "start_time(3i)"=>"26", "start_time(4i)"=>"20", "start_time(5i)"=>"17", "end_time(1i)"=>"2010", "end_time(2i)"=>"9", "end_time(3i)"=>"26", "end_time(4i)"=>"20", "end_time(5i)"=>"17"}, "commit"=>"Create Event"}
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  describe `events`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `events` (`city`, `created_at`, `description`, `end_time`, `name`, `network_id`, `start_time`, `state`, `street1`, `street2`, `updated_at`, `zip_code`) VALUES ('', '2010-09-26 20:17:27', NULL, '2010-09-26 20:17:00', 'test', NULL, '2010-09-26 20:17:00', '', '', '', '2010-09-26 20:17:27', '')[0m
+  [1m[35mSQL (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 115ms
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:17:27 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1[0m
+  [1m[35mFeedback Load (0.3ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1
+Rendered events/_feedback.haml (1.0ms)
+Rendered events/show.html.haml within layouts/application (84.3ms)
+Completed 200 OK in 103ms (Views: 90.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:17:50 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1[0m
+  [1m[35mFeedback Load (0.4ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1
+Rendered events/_feedback.haml (1.0ms)
+Rendered events/show.html.haml within layouts/application (30.8ms)
+Completed 200 OK in 49ms (Views: 36.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:18:52 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1[0m
+  [1m[35mFeedback Load (0.3ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1
+Rendered events/_feedback.haml (1.0ms)
+Rendered events/show.html.haml within layouts/application (64.2ms)
+Completed 200 OK in 82ms (Views: 69.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:18:59 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (24.7ms)[0m  [1mSELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1[0m
+  [1m[35mFeedback Load (0.3ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1
+Rendered events/_feedback.haml (1.1ms)
+Rendered events/show.html.haml within layouts/application (32.7ms)
+Completed 200 OK in 76ms (Views: 38.4ms | ActiveRecord: 25.1ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:26:51 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1[0m
+  [1m[35mFeedback Load (0.3ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1
+Rendered events/_feedback.haml (1.9ms)
+Rendered events/show.html.haml within layouts/application (32.0ms)
+Completed 200 OK in 50ms (Views: 37.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:27:43 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1[0m
+  [1m[35mFeedback Load (0.3ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1
+Rendered events/_feedback.haml (1.9ms)
+Rendered events/show.html.haml within layouts/application (32.3ms)
+Completed 200 OK in 50ms (Views: 37.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:27:53 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1[0m
+  [1m[35mFeedback Load (0.3ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1
+Rendered events/_feedback.haml (1.6ms)
+Rendered events/show.html.haml within layouts/application (60.3ms)
+Completed   in 79ms
+
+ActionView::Template::Error (Inconsistent indentation: "\t\t  " was used for indentation, but the rest of the document was indented using 1 tab.):
+    4: %table
+    5: 	%tr.feasts
+    6: 		%td
+    7: 		  Feast
+    8: 	%tr.famines
+    9: 		%td
+    10: 			Famine
+  app/views/events/_feedback.haml:7
+  app/views/events/show.html.haml:30:in `_app_views_events_show_html_haml___3132051132293794658_2153364820_2124167648150970176'
+  app/controllers/events_controller.rb:18:in `show'
+
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.2ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.8ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:27:58 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1[0m
+  [1m[35mFeedback Load (0.3ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1
+Rendered events/_feedback.haml (2.3ms)
+Rendered events/show.html.haml within layouts/application (31.5ms)
+Completed 200 OK in 49ms (Views: 37.1ms | ActiveRecord: 0.9ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to Feedback (20100926191800)
+  [1m[35mSQL (2.0ms)[0m  DROP TABLE `feedbacks`
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20100926191800'[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `events`[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW KEYS FROM `events`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.6ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateEvents (20100915023740)
+Migrating to Feedback (20100926191800)
+  [1m[35mSQL (61.0ms)[0m  CREATE TABLE `feedbacks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `event_id` int(11), `feast` int(11), `famine` int(11), `members_only` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100926191800')
+  [1m[36mSQL (0.8ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (1.6ms)[0m  describe `events`
+  [1m[36mSQL (0.8ms)[0m  [1mSHOW KEYS FROM `events`[0m
+  [1m[35mSQL (1.6ms)[0m  describe `feedbacks`
+  [1m[36mSQL (0.8ms)[0m  [1mSHOW KEYS FROM `feedbacks`[0m
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:39:00 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1
+  [1m[36mFeedback Load (0.3ms)[0m  [1mSELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1[0m
+Rendered events/_feedback.haml (3.0ms)
+Rendered events/show.html.haml within layouts/application (76.0ms)
+Completed   in 148ms
+
+ActionView::Template::Error (undefined method `feast' for nil:NilClass):
+    11: 			="Members Only:"
+    12: 	%tr.numbers
+    13: 		%td.feast
+    14: 			= "#{feedback.feast}"
+    15: 		%td.famine
+    16: 			= "#{feedback.famine}"
+    17: 		%td.members_only
+  app/views/events/_feedback.haml:14:in `_app_views_events__feedback_haml___930663296644889093_2158225240_240178362541713554'
+  app/views/events/show.html.haml:30:in `_app_views_events_show_html_haml___2538905421656343563_2156938440__3435695397102649374'
+  app/controllers/events_controller.rb:18:in `show'
+
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.2ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.8ms)
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT `events`.* FROM `events` LIMIT 1
+  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT `events`.* FROM `events` LIMIT 1[0m
+  [1m[35mFeedback Load (0.3ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1
+  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT `events`.* FROM `events` LIMIT 1[0m
+  [1m[35mFeedback Load (0.3ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  describe `feedbacks`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `feedbacks` (`created_at`, `event_id`, `famine`, `feast`, `members_only`, `updated_at`) VALUES ('2010-09-26 20:40:35', 1, NULL, NULL, NULL, '2010-09-26 20:40:35')[0m
+  [1m[35mSQL (0.5ms)[0m  COMMIT
+  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT `events`.* FROM `events` LIMIT 1[0m
+  [1m[35mFeedback Load (0.3ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+  [1m[36mEvent Load (0.5ms)[0m  [1mSELECT `events`.* FROM `events` LIMIT 1[0m
+  [1m[35mFeedback Load (0.4ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:41:06 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1
+  [1m[36mFeedback Load (0.3ms)[0m  [1mSELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1[0m
+Rendered events/_feedback.haml (10.6ms)
+Rendered events/show.html.haml within layouts/application (41.7ms)
+Completed 200 OK in 60ms (Views: 47.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:42:27 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEvent Load (110.2ms)[0m  SELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1
+  [1m[36mFeedback Load (0.3ms)[0m  [1mSELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1[0m
+Rendered events/_feedback.haml (41.2ms)
+Rendered events/show.html.haml within layouts/application (72.8ms)
+Completed 200 OK in 204ms (Views: 80.5ms | ActiveRecord: 110.5ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:42:29 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1
+  [1m[36mFeedback Load (0.3ms)[0m  [1mSELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1[0m
+Rendered events/_feedback.haml (8.3ms)
+Rendered events/show.html.haml within layouts/application (39.8ms)
+Completed 200 OK in 58ms (Views: 45.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:42:42 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEvent Load (0.2ms)[0m  SELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1
+  [1m[36mFeedback Load (0.3ms)[0m  [1mSELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1[0m
+Rendered events/_feedback.haml (9.3ms)
+Rendered events/show.html.haml within layouts/application (39.5ms)
+Completed 200 OK in 57ms (Views: 45.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:43:00 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1
+  [1m[36mFeedback Load (0.3ms)[0m  [1mSELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1[0m
+Rendered events/_feedback.haml (8.9ms)
+Rendered events/show.html.haml within layouts/application (38.3ms)
+Completed 200 OK in 56ms (Views: 44.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:47:39 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1
+  [1m[36mFeedback Load (0.3ms)[0m  [1mSELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1[0m
+Rendered events/_feedback.haml (8.9ms)
+Rendered events/show.html.haml within layouts/application (39.7ms)
+Completed 200 OK in 90ms (Views: 45.2ms | ActiveRecord: 0.6ms)
+  [1m[36mSQL (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE `feedbacks` SET `feast` = 101, `updated_at` = '2010-09-26 20:54:52' WHERE (`feedbacks`.`id` = 1)
+  [1m[36mSQL (0.8ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:54:54 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1
+  [1m[36mFeedback Load (0.3ms)[0m  [1mSELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1[0m
+Rendered events/_feedback.haml (8.5ms)
+Rendered events/show.html.haml within layouts/application (72.8ms)
+Completed 200 OK in 90ms (Views: 78.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:54:56 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1
+  [1m[36mFeedback Load (0.3ms)[0m  [1mSELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1[0m
+Rendered events/_feedback.haml (41.9ms)
+Rendered events/show.html.haml within layouts/application (71.8ms)
+Completed 200 OK in 89ms (Views: 77.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:54:57 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1
+  [1m[36mFeedback Load (0.3ms)[0m  [1mSELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1[0m
+Rendered events/_feedback.haml (8.9ms)
+Rendered events/show.html.haml within layouts/application (39.8ms)
+Completed 200 OK in 57ms (Views: 45.3ms | ActiveRecord: 0.6ms)
+  [1m[35mEvent Load (0.4ms)[0m  SELECT `events`.* FROM `events` LIMIT 1
+  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT `events`.* FROM `events` LIMIT 1[0m
+  [1m[35mEvent Load (0.4ms)[0m  SELECT `events`.* FROM `events` LIMIT 1
+  [1m[36mFeedback Load (0.3ms)[0m  [1mSELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1[0m
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:55:49 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1
+  [1m[36mFeedback Load (0.3ms)[0m  [1mSELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1[0m
+Rendered events/_feedback.haml (10.0ms)
+Rendered events/show.html.haml within layouts/application (36.9ms)
+Completed   in 65ms
+
+ActionView::Template::Error (stack level too deep):
+  app/models/feedback.rb:5
+
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.7ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:57:09 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1
+  [1m[36mFeedback Load (0.3ms)[0m  [1mSELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1[0m
+Rendered events/_feedback.haml (8.6ms)
+Rendered events/show.html.haml within layouts/application (70.8ms)
+Completed 200 OK in 89ms (Views: 76.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2010-09-26 16:57:13 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT `events`.* FROM `events` WHERE (`events`.`id` = 1) LIMIT 1
+  [1m[36mFeedback Load (0.3ms)[0m  [1mSELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 1) LIMIT 1[0m
+Rendered events/_feedback.haml (8.7ms)
+Rendered events/show.html.haml within layouts/application (71.3ms)
+Completed 200 OK in 89ms (Views: 76.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2010-09-26 16:57:20 -0400
+  Processing by EventsController#index as HTML
+  [1m[35mEvent Load (0.3ms)[0m  SELECT `events`.* FROM `events`
+Rendered events/index.html.haml within layouts/application (18.5ms)
+Completed 200 OK in 34ms (Views: 25.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2010-09-26 16:57:22 -0400
+  Processing by EventsController#new as HTML
+Rendered events/_form.html.haml (60.0ms)
+Rendered events/new.html.haml within layouts/application (66.9ms)
+Completed 200 OK in 83ms (Views: 73.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2010-09-26 16:57:29 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cBUN2+C9ku0+sX7iwXwejH4e9bHzV75tmD1h3cJYUWw=", "event"=>{"name"=>"test2", "street1"=>"", "street2"=>"", "city"=>"", "state"=>"", "zip_code"=>"", "start_time(1i)"=>"2010", "start_time(2i)"=>"9", "start_time(3i)"=>"26", "start_time(4i)"=>"20", "start_time(5i)"=>"57", "end_time(1i)"=>"2010", "end_time(2i)"=>"9", "end_time(3i)"=>"26", "end_time(4i)"=>"20", "end_time(5i)"=>"57"}, "commit"=>"Create Event"}
+  [1m[36mSQL (0.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  describe `events`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `events` (`city`, `created_at`, `description`, `end_time`, `name`, `network_id`, `start_time`, `state`, `street1`, `street2`, `updated_at`, `zip_code`) VALUES ('', '2010-09-26 20:57:29', NULL, '2010-09-26 20:57:00', 'test2', NULL, '2010-09-26 20:57:00', '', '', '', '2010-09-26 20:57:29', '')[0m
+  [1m[35mSQL (1.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/events/2
+Completed 302 Found in 35ms
+
+
+Started GET "/events/2" for 127.0.0.1 at 2010-09-26 16:57:29 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT `events`.* FROM `events` WHERE (`events`.`id` = 2) LIMIT 1[0m
+  [1m[35mFeedback Load (0.3ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 2) LIMIT 1
+Rendered events/_feedback.haml (2.8ms)
+Rendered events/show.html.haml within layouts/application (61.9ms)
+Completed   in 80ms
+
+ActionView::Template::Error (undefined method `feast' for nil:NilClass):
+    11: 			="\"Members Only\":"
+    12: 	%tr.stats
+    13: 		%td.feast
+    14: 			= "#{feedback.feast}"
+    15: 		%td.famine
+    16: 			= "#{feedback.famine}"
+    17: 		%td.members_only
+  app/views/events/_feedback.haml:14:in `_app_views_events__feedback_haml___930663296644889093_2189648220_240178362541713554'
+  app/views/events/show.html.haml:30:in `_app_views_events_show_html_haml___2538905421656343563_2154268640__3435695397102649374'
+  app/controllers/events_controller.rb:18:in `show'
+
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.3ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.0ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2010-09-26 16:59:55 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cBUN2+C9ku0+sX7iwXwejH4e9bHzV75tmD1h3cJYUWw=", "event"=>{"name"=>"test2", "street1"=>"", "street2"=>"", "city"=>"", "state"=>"", "zip_code"=>"", "start_time(1i)"=>"2010", "start_time(2i)"=>"9", "start_time(3i)"=>"26", "start_time(4i)"=>"20", "start_time(5i)"=>"57", "end_time(1i)"=>"2010", "end_time(2i)"=>"9", "end_time(3i)"=>"26", "end_time(4i)"=>"20", "end_time(5i)"=>"57"}, "commit"=>"Create Event"}
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+Completed   in 10ms
+
+NameError (undefined local variable or method `feedback' for #<Class:0x00000101644090>):
+  app/models/event.rb:4:in `<class:Event>'
+  app/models/event.rb:1:in `<top (required)>'
+  app/controllers/events_controller.rb:43:in `create'
+
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.4ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.7ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2010-09-26 17:00:16 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cBUN2+C9ku0+sX7iwXwejH4e9bHzV75tmD1h3cJYUWw=", "event"=>{"name"=>"test2", "street1"=>"", "street2"=>"", "city"=>"", "state"=>"", "zip_code"=>"", "start_time(1i)"=>"2010", "start_time(2i)"=>"9", "start_time(3i)"=>"26", "start_time(4i)"=>"20", "start_time(5i)"=>"57", "end_time(1i)"=>"2010", "end_time(2i)"=>"9", "end_time(3i)"=>"26", "end_time(4i)"=>"20", "end_time(5i)"=>"57"}, "commit"=>"Create Event"}
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+Completed   in 10ms
+
+NoMethodError (undefined method `feedback' for #<Class:0x00000100e1afe0>):
+  app/models/event.rb:4:in `<class:Event>'
+  app/models/event.rb:1:in `<top (required)>'
+  app/controllers/events_controller.rb:43:in `create'
+
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (34.5ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.2ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (45.2ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2010-09-26 17:02:01 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cBUN2+C9ku0+sX7iwXwejH4e9bHzV75tmD1h3cJYUWw=", "event"=>{"name"=>"test2", "street1"=>"", "street2"=>"", "city"=>"", "state"=>"", "zip_code"=>"", "start_time(1i)"=>"2010", "start_time(2i)"=>"9", "start_time(3i)"=>"26", "start_time(4i)"=>"20", "start_time(5i)"=>"57", "end_time(1i)"=>"2010", "end_time(2i)"=>"9", "end_time(3i)"=>"26", "end_time(4i)"=>"20", "end_time(5i)"=>"57"}, "commit"=>"Create Event"}
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`city`, `created_at`, `description`, `end_time`, `name`, `network_id`, `start_time`, `state`, `street1`, `street2`, `updated_at`, `zip_code`) VALUES ('', '2010-09-26 21:02:01', NULL, '2010-09-26 20:57:00', 'test2', NULL, '2010-09-26 20:57:00', '', '', '', '2010-09-26 21:02:01', '')
+  [1m[36mSQL (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/events/3
+Completed 302 Found in 28ms
+
+
+Started GET "/events/3" for 127.0.0.1 at 2010-09-26 17:02:02 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT `events`.* FROM `events` WHERE (`events`.`id` = 3) LIMIT 1
+  [1m[36mFeedback Load (0.3ms)[0m  [1mSELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 3) LIMIT 1[0m
+Rendered events/_feedback.haml (36.2ms)
+Rendered events/show.html.haml within layouts/application (63.4ms)
+Completed   in 81ms
+
+ActionView::Template::Error (undefined method `feast' for nil:NilClass):
+    11: 			="\"Members Only\":"
+    12: 	%tr.stats
+    13: 		%td.feast
+    14: 			= "#{feedback.feast}"
+    15: 		%td.famine
+    16: 			= "#{feedback.famine}"
+    17: 		%td.members_only
+  app/views/events/_feedback.haml:14:in `_app_views_events__feedback_haml___930663296644889093_2157160620_240178362541713554'
+  app/views/events/show.html.haml:30:in `_app_views_events_show_html_haml___2538905421656343563_2158508800__3435695397102649374'
+  app/controllers/events_controller.rb:18:in `show'
+
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.9ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2010-09-26 17:02:24 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cBUN2+C9ku0+sX7iwXwejH4e9bHzV75tmD1h3cJYUWw=", "event"=>{"name"=>"test2", "street1"=>"", "street2"=>"", "city"=>"", "state"=>"", "zip_code"=>"", "start_time(1i)"=>"2010", "start_time(2i)"=>"9", "start_time(3i)"=>"26", "start_time(4i)"=>"20", "start_time(5i)"=>"57", "end_time(1i)"=>"2010", "end_time(2i)"=>"9", "end_time(3i)"=>"26", "end_time(4i)"=>"20", "end_time(5i)"=>"57"}, "commit"=>"Create Event"}
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `events` (`city`, `created_at`, `description`, `end_time`, `name`, `network_id`, `start_time`, `state`, `street1`, `street2`, `updated_at`, `zip_code`) VALUES ('', '2010-09-26 21:02:24', NULL, '2010-09-26 20:57:00', 'test2', NULL, '2010-09-26 20:57:00', '', '', '', '2010-09-26 21:02:24', '')[0m
+  [1m[35mSQL (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/events/4
+Completed 302 Found in 27ms
+
+
+Started GET "/events/4" for 127.0.0.1 at 2010-09-26 17:02:24 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT `events`.* FROM `events` WHERE (`events`.`id` = 4) LIMIT 1[0m
+  [1m[35mFeedback Load (0.3ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 4) LIMIT 1
+Rendered events/_feedback.haml (2.7ms)
+Rendered events/show.html.haml within layouts/application (62.8ms)
+Completed   in 80ms
+
+ActionView::Template::Error (undefined method `feast' for nil:NilClass):
+    11: 			="\"Members Only\":"
+    12: 	%tr.stats
+    13: 		%td.feast
+    14: 			= "#{feedback.feast}"
+    15: 		%td.famine
+    16: 			= "#{feedback.famine}"
+    17: 		%td.members_only
+  app/views/events/_feedback.haml:14:in `_app_views_events__feedback_haml___930663296644889093_2189927500_240178362541713554'
+  app/views/events/show.html.haml:30:in `_app_views_events_show_html_haml___2538905421656343563_2157558600__3435695397102649374'
+  app/controllers/events_controller.rb:18:in `show'
+
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.6ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2010-09-26 17:02:35 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cBUN2+C9ku0+sX7iwXwejH4e9bHzV75tmD1h3cJYUWw=", "event"=>{"name"=>"test3", "street1"=>"", "street2"=>"", "city"=>"", "state"=>"", "zip_code"=>"", "start_time(1i)"=>"2010", "start_time(2i)"=>"9", "start_time(3i)"=>"26", "start_time(4i)"=>"20", "start_time(5i)"=>"57", "end_time(1i)"=>"2010", "end_time(2i)"=>"9", "end_time(3i)"=>"26", "end_time(4i)"=>"20", "end_time(5i)"=>"57"}, "commit"=>"Create Event"}
+  [1m[36mSQL (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`city`, `created_at`, `description`, `end_time`, `name`, `network_id`, `start_time`, `state`, `street1`, `street2`, `updated_at`, `zip_code`) VALUES ('', '2010-09-26 21:02:35', NULL, '2010-09-26 20:57:00', 'test3', NULL, '2010-09-26 20:57:00', '', '', '', '2010-09-26 21:02:35', '')
+  [1m[36mSQL (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/events/5
+Completed 302 Found in 27ms
+
+
+Started GET "/events/5" for 127.0.0.1 at 2010-09-26 17:02:35 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT `events`.* FROM `events` WHERE (`events`.`id` = 5) LIMIT 1
+  [1m[36mFeedback Load (0.3ms)[0m  [1mSELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 5) LIMIT 1[0m
+Rendered events/_feedback.haml (2.8ms)
+Rendered events/show.html.haml within layouts/application (64.3ms)
+Completed   in 82ms
+
+ActionView::Template::Error (undefined method `feast' for nil:NilClass):
+    11: 			="\"Members Only\":"
+    12: 	%tr.stats
+    13: 		%td.feast
+    14: 			= "#{feedback.feast}"
+    15: 		%td.famine
+    16: 			= "#{feedback.famine}"
+    17: 		%td.members_only
+  app/views/events/_feedback.haml:14:in `_app_views_events__feedback_haml___930663296644889093_2189917800_240178362541713554'
+  app/views/events/show.html.haml:30:in `_app_views_events_show_html_haml___2538905421656343563_2157524960__3435695397102649374'
+  app/controllers/events_controller.rb:18:in `show'
+
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.9ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2010-09-26 17:02:39 -0400
+  Processing by EventsController#new as HTML
+Rendered events/_form.html.haml (24.9ms)
+Rendered events/new.html.haml within layouts/application (31.0ms)
+Completed 200 OK in 47ms (Views: 37.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2010-09-26 17:02:44 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cBUN2+C9ku0+sX7iwXwejH4e9bHzV75tmD1h3cJYUWw=", "event"=>{"name"=>"feedback3", "street1"=>"", "street2"=>"", "city"=>"", "state"=>"", "zip_code"=>"", "start_time(1i)"=>"2010", "start_time(2i)"=>"9", "start_time(3i)"=>"26", "start_time(4i)"=>"21", "start_time(5i)"=>"02", "end_time(1i)"=>"2010", "end_time(2i)"=>"9", "end_time(3i)"=>"26", "end_time(4i)"=>"21", "end_time(5i)"=>"02"}, "commit"=>"Create Event"}
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `events` (`city`, `created_at`, `description`, `end_time`, `name`, `network_id`, `start_time`, `state`, `street1`, `street2`, `updated_at`, `zip_code`) VALUES ('', '2010-09-26 21:02:44', NULL, '2010-09-26 21:02:00', 'feedback3', NULL, '2010-09-26 21:02:00', '', '', '', '2010-09-26 21:02:44', '')[0m
+  [1m[35mSQL (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/events/6
+Completed 302 Found in 62ms
+
+
+Started GET "/events/6" for 127.0.0.1 at 2010-09-26 17:02:44 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT `events`.* FROM `events` WHERE (`events`.`id` = 6) LIMIT 1[0m
+  [1m[35mFeedback Load (0.3ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 6) LIMIT 1
+Rendered events/_feedback.haml (2.8ms)
+Rendered events/show.html.haml within layouts/application (30.4ms)
+Completed   in 48ms
+
+ActionView::Template::Error (undefined method `feast' for nil:NilClass):
+    11: 			="\"Members Only\":"
+    12: 	%tr.stats
+    13: 		%td.feast
+    14: 			= "#{feedback.feast}"
+    15: 		%td.famine
+    16: 			= "#{feedback.famine}"
+    17: 		%td.members_only
+  app/views/events/_feedback.haml:14:in `_app_views_events__feedback_haml___930663296644889093_2159939840_240178362541713554'
+  app/views/events/show.html.haml:30:in `_app_views_events_show_html_haml___2538905421656343563_2177907660__3435695397102649374'
+  app/controllers/events_controller.rb:18:in `show'
+
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.2ms)
+Rendered /Users/SE/.rvm/gems/ruby-1.9.2-rc2/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.1ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2010-09-26 17:03:14 -0400
+  Processing by EventsController#new as HTML
+Rendered events/_form.html.haml (25.1ms)
+Rendered events/new.html.haml within layouts/application (65.1ms)
+Completed 200 OK in 81ms (Views: 71.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2010-09-26 17:03:21 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cBUN2+C9ku0+sX7iwXwejH4e9bHzV75tmD1h3cJYUWw=", "event"=>{"name"=>"FFF123", "street1"=>"", "street2"=>"", "city"=>"", "state"=>"", "zip_code"=>"", "start_time(1i)"=>"2010", "start_time(2i)"=>"9", "start_time(3i)"=>"26", "start_time(4i)"=>"21", "start_time(5i)"=>"03", "end_time(1i)"=>"2010", "end_time(2i)"=>"9", "end_time(3i)"=>"26", "end_time(4i)"=>"21", "end_time(5i)"=>"03"}, "commit"=>"Create Event"}
+  [1m[36mSQL (1.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.2ms)[0m  describe `feedbacks`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `feedbacks` (`created_at`, `event_id`, `famine`, `feast`, `members_only`, `updated_at`) VALUES ('2010-09-26 21:03:21', NULL, NULL, NULL, NULL, '2010-09-26 21:03:21')[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`city`, `created_at`, `description`, `end_time`, `name`, `network_id`, `start_time`, `state`, `street1`, `street2`, `updated_at`, `zip_code`) VALUES ('', '2010-09-26 21:03:21', NULL, '2010-09-26 21:03:00', 'FFF123', NULL, '2010-09-26 21:03:00', '', '', '', '2010-09-26 21:03:21', '')
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE `feedbacks` SET `event_id` = 7, `updated_at` = '2010-09-26 21:03:21' WHERE (`feedbacks`.`id` = 2)[0m
+  [1m[35mSQL (0.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/events/7
+Completed 302 Found in 61ms
+
+
+Started GET "/events/7" for 127.0.0.1 at 2010-09-26 17:03:21 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT `events`.* FROM `events` WHERE (`events`.`id` = 7) LIMIT 1[0m
+  [1m[35mFeedback Load (0.3ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 7) LIMIT 1
+Rendered events/_feedback.haml (8.7ms)
+Rendered events/show.html.haml within layouts/application (38.7ms)
+Completed 200 OK in 57ms (Views: 44.5ms | ActiveRecord: 0.6ms)
+  [1m[35mFeedback Load (0.7ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` ORDER BY feedbacks.id DESC LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mSHOW TABLES[0m
+  [1m[36mSQL (0.6ms)[0m  [1mSHOW TABLES[0m
+
+
+Started GET "/events/7" for 127.0.0.1 at 2010-09-26 17:42:01 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT `events`.* FROM `events` WHERE (`events`.`id` = 7) LIMIT 1[0m
+  [1m[35mFeedback Load (0.3ms)[0m  SELECT `feedbacks`.* FROM `feedbacks` WHERE (`feedbacks`.event_id = 7) LIMIT 1
+Rendered events/_feedback.haml (9.0ms)
+Rendered events/show.html.haml within layouts/application (40.2ms)
+Completed 200 OK in 92ms (Views: 46.8ms | ActiveRecord: 0.6ms)

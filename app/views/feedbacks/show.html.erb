@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Event:</b>
+  <%= @feedback.event_id %>
+</p>
+
+<p>
+  <b>Feast:</b>
+  <%= @feedback.feast %>
+</p>
+
+<p>
+  <b>Famine:</b>
+  <%= @feedback.famine %>
+</p>
+
+
+<%= link_to 'Edit', edit_feedback_path(@feedback) %> |
+<%= link_to 'Back', feedbacks_path %>

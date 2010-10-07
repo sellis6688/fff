@@ -1,0 +1,18 @@
+.feedback-title
+	="Feedback"
+
+%table
+	%tr.titles
+		%td.feast
+			="Feasting:"
+		%td.famine
+			="Famished:"
+		%td.members_only
+			="\"Members Only\":"
+	%tr.stats
+		%td.feast
+			= "#{feedback.feast}"
+		%td.famine
+			= "#{feedback.famine}"
+		%td.members_only
+			= "#{feedback.members_only}"
